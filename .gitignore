@@ -1,0 +1,13 @@
+config.log
+*.o
+liboddcast/Makefile
+.deps/
+Makefile
+config.status
+liboddcast/.deps/
+libtool
+streamTranscoderv3
+autom4te.cache/
+*.a
+autom4te.cache
+liboddcast/liboddcast.a
