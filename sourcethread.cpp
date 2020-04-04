@@ -328,7 +328,11 @@ void * startSourceThread(void *url) {
 	#ifdef WIN32
 					Sleep(100);
 	#else
-					usleep(1000);
+					// On WIN32 we sleep 100 ms, on POSIX we sleep 1 ms
+					// This difference might explain the high CPU usage
+					// So let's keep the same values here
+					//usleep(1000);
+					usleep(100000);
 	#endif
 				}
 				else {
@@ -356,7 +360,11 @@ void * startSourceThread(void *url) {
 #ifdef WIN32
 						Sleep(100);
 #else
-						usleep(1000);
+						// On WIN32 we sleep 100 ms, on POSIX we sleep 1 ms
+						// This difference might explain the high CPU usage
+						// So let's keep the same values here
+						//usleep(1000);
+						usleep(100000);
 #endif
 					}
 					else {

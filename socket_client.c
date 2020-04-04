@@ -52,7 +52,9 @@ int connect_client(char *host, int port, char *mount, char **header)
         return(-1);
     }
 
-	sprintf(getRequest, "GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: WinampMPEG/5.11\r\nAccept: */*\r\nIcy-MetaData:1\r\nConnection: close\r\n\r\n", mount, host);
+	// We are not Winamp, why identify as such ?!?!
+	//sprintf(getRequest, "GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: WinampMPEG/5.11\r\nAccept: */*\r\nIcy-MetaData:1\r\nConnection: close\r\n\r\n", mount, host);
+	sprintf(getRequest, "GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: StreamTranscoder\r\nAccept: */*\r\nIcy-MetaData:1\r\nConnection: close\r\n\r\n", mount, host);
 	
     sent = send(sockfd, getRequest, strlen(getRequest), 0);
 

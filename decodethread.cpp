@@ -144,7 +144,11 @@ void * startDecodeThread(void *url) {
 	#ifdef WIN32
 				Sleep(100);
 	#else
-				usleep(250);
+				// On WIN32 we sleep 100 ms, on POSIX we sleep 250 us
+				// This difference might explain the high CPU usage
+				// So let's keep the same values here
+				//usleep(250);
+				usleep(100000);
 	#endif
 			}
 		}
